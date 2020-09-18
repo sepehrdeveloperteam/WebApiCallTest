@@ -47,7 +47,9 @@ namespace WebApiCallTest.Controllers
             HttpClient client = new HttpClient();
             var url = "https://api.irbroker.com/api/v1/authenticate";
 
-
+            //11145
+            //3790076929
+            
 
             loginwebservice loginwebservice = new loginwebservice();
             loginwebservice.username = "sepehruser1";
@@ -64,6 +66,49 @@ namespace WebApiCallTest.Controllers
 
             return View();
         }
+
+
+        public async Task<IActionResult> Index3()
+        {
+            HttpClient client = new HttpClient();
+            var url = "https://api.irbroker.com/api/v1/login";
+
+            //11145
+            //3790076929
+
+
+            UserLogin userLogin = new UserLogin();
+
+            userLogin.code = "dfcdf797-4a43-4c35-a623-d5d9060aeef5"; dfcdf797 - 4a43 - 4c35 - a623 - d5d9060aeef5
+            userLogin.username = "sepehruser1";
+            userLogin.password = "tr9qGxHf8QB4";
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(userLogin);
+            //var content = new FormUrlEncodedContent(json,new[]
+            //{
+            //    new KeyValuePair<string, string>("Content-Type", "application/json"),
+            //    new KeyValuePair<string, string>("X-CLIENT-TOKEN", "Call service 2")
+            //});
+
+            //var pairs = new List<KeyValuePair<string, string>>
+            //{
+            //    new KeyValuePair<string, string>("Content-Type", "application/json"),
+            //    new KeyValuePair<string, string>("X-CLIENT-TOKEN", "Call service 2")
+            //};
+
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            data.Headers.Add("X-CLIENT-TOKEN", "Call service 2");
+
+            var response = await client.PostAsync(url, data);
+
+            string result = response.Content.ReadAsStringAsync().Result;
+
+            ViewBag.r = result;
+
+            return View();
+        }
+
+
+
 
         public IActionResult Privacy()
         {
