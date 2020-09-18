@@ -75,13 +75,14 @@ namespace WebApiCallTest.Controllers
 
             //11145
             //3790076929
-
+            //dfcdf797-4a43-4c35-a623-d5d9060aeef5
+            //dfcdf797-4a43-4c35-a623-d5d9060aeef5
 
             UserLogin userLogin = new UserLogin();
 
-            userLogin.code = "dfcdf797-4a43-4c35-a623-d5d9060aeef5"; dfcdf797 - 4a43 - 4c35 - a623 - d5d9060aeef5
-            userLogin.username = "sepehruser1";
-            userLogin.password = "tr9qGxHf8QB4";
+            userLogin.code = "11145"; 
+            userLogin.username = "3790076929";
+            userLogin.password = "Mypassword@123";
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(userLogin);
             //var content = new FormUrlEncodedContent(json,new[]
             //{
@@ -96,7 +97,7 @@ namespace WebApiCallTest.Controllers
             //};
 
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            data.Headers.Add("X-CLIENT-TOKEN", "Call service 2");
+            data.Headers.Add("X-CLIENT-TOKEN", "dfcdf797-4a43-4c35-a623-d5d9060aeef5");
 
             var response = await client.PostAsync(url, data);
 
